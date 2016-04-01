@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsmJit", "AsmJit\AsmJit.csproj", "{FC415F40-FDEE-463D-B8A9-84715FCD2D9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsmJitTest", "AsmJitTest\AsmJitTest.csproj", "{58C963F0-6397-42A6-9FE7-EBEDEC34F455}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpDisasm", "SharpDisasm\SharpDisasm.csproj", "{2E6B8C04-C545-4251-AC4E-49E5058B2728}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FC415F40-FDEE-463D-B8A9-84715FCD2D9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC415F40-FDEE-463D-B8A9-84715FCD2D9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC415F40-FDEE-463D-B8A9-84715FCD2D9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC415F40-FDEE-463D-B8A9-84715FCD2D9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58C963F0-6397-42A6-9FE7-EBEDEC34F455}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58C963F0-6397-42A6-9FE7-EBEDEC34F455}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58C963F0-6397-42A6-9FE7-EBEDEC34F455}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58C963F0-6397-42A6-9FE7-EBEDEC34F455}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E6B8C04-C545-4251-AC4E-49E5058B2728}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E6B8C04-C545-4251-AC4E-49E5058B2728}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E6B8C04-C545-4251-AC4E-49E5058B2728}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E6B8C04-C545-4251-AC4E-49E5058B2728}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

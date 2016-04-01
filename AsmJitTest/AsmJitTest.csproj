@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{58C963F0-6397-42A6-9FE7-EBEDEC34F455}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AsmJitTest</RootNamespace>
+    <AssemblyName>AsmJitTest</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Cpuid.cs" />
+    <Compile Include="DllLoader.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CompilerTestCase.cs" />
+    <Compile Include="TestCases\AllocArgsDouble.cs" />
+    <Compile Include="TestCases\AllocArgsFloat.cs" />
+    <Compile Include="TestCases\AllocArgsIntPtr.cs" />
+    <Compile Include="TestCases\AllocBase.cs" />
+    <Compile Include="TestCases\AllocBlend.cs" />
+    <Compile Include="TestCases\AllocGpLo.cs" />
+    <Compile Include="TestCases\AllocIdiv1.cs" />
+    <Compile Include="TestCases\AllocIfElse1.cs" />
+    <Compile Include="TestCases\AllocIfElse2.cs" />
+    <Compile Include="TestCases\AllocIfElse3.cs" />
+    <Compile Include="TestCases\AllocIfElse4.cs" />
+    <Compile Include="TestCases\AllocImul1.cs" />
+    <Compile Include="TestCases\AllocImul2.cs" />
+    <Compile Include="TestCases\AllocInt8.cs" />
+    <Compile Include="TestCases\AllocManual.cs" />
+    <Compile Include="TestCases\AllocMany1.cs" />
+    <Compile Include="TestCases\AllocMany2.cs" />
+    <Compile Include="TestCases\AllocMemcpy.cs" />
+    <Compile Include="TestCases\AllocRepMovsb.cs" />
+    <Compile Include="TestCases\AllocRetDouble.cs" />
+    <Compile Include="TestCases\AllocRetFloat.cs" />
+    <Compile Include="TestCases\AllocSetz.cs" />
+    <Compile Include="TestCases\AllocShlRor.cs" />
+    <Compile Include="TestCases\AllocStack.cs" />
+    <Compile Include="TestCases\AllocUseMem.cs" />
+    <Compile Include="TestCases\CallBase.cs" />
+    <Compile Include="TestCases\CallConditional.cs" />
+    <Compile Include="TestCases\CallDoubleAsXmmRet.cs" />
+    <Compile Include="TestCases\CallDuplicateArgs.cs" />
+    <Compile Include="TestCases\CallFast.cs" />
+    <Compile Include="TestCases\CallFloatAsXmmRet.cs" />
+    <Compile Include="TestCases\CallImmArgs.cs" />
+    <Compile Include="TestCases\CallManyArgs.cs" />
+    <Compile Include="TestCases\CallMisc1.cs" />
+    <Compile Include="TestCases\CallMisc2.cs" />
+    <Compile Include="TestCases\CallMisc3.cs" />
+    <Compile Include="TestCases\CallMisc4.cs" />
+    <Compile Include="TestCases\CallMultiple.cs" />
+    <Compile Include="TestCases\CallPtrArgs.cs" />
+    <Compile Include="TestCases\CallRecursive.cs" />
+    <Compile Include="TestCases\JumpCross.cs" />
+    <Compile Include="TestCases\JumpUnreachable1.cs" />
+    <Compile Include="TestCases\JumpUnreachable2.cs" />
+    <Compile Include="TestCases\MiscConstPool.cs" />
+    <Compile Include="TestCases\MiscMultiRet.cs" />
+    <Compile Include="TestCases\RawAssembler.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AsmJit\AsmJit.csproj">
+      <Project>{fc415f40-fdee-463d-b8a9-84715fcd2d9d}</Project>
+      <Name>AsmJit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharpDisasm\SharpDisasm.csproj">
+      <Project>{2e6b8c04-c545-4251-ac4e-49e5058b2728}</Project>
+      <Name>SharpDisasm</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
