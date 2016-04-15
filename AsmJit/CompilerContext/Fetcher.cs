@@ -914,10 +914,21 @@ namespace AsmJit.CompilerContext
 					{
 						var end = node;
 						node = first;
+						bool removeEverything = true;
 						do
 						{
 							var next = node.Next;
-							if (!node.IsInformative() && node.Type != CodeNodeType.Alignment)
+							bool remove = node.IsRemovable();
+							if (!remove)
+							{
+								if (node.Type == CodeNodeType.Label)
+								{
+									removeEverything = false;
+								}
+								remove = removeEverything;
+							}
+
+							if (remove)
 							{
 								_compiler.RemoveNode(node);
 							}

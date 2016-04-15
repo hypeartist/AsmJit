@@ -21,6 +21,7 @@ namespace AsmJit.CompilerContext.CodeTree
 				MemoryOperandIndex = i;
 				break;
 			}
+			Flags |= CodeNodeFlags.Removable;
 		}
 
 		public InstructionId InstructionId { get; private set; }

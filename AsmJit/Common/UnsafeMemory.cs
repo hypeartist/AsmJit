@@ -64,7 +64,7 @@ namespace AsmJit.Common
 				protectFlags |= mode.IsSet(ProtectedMemoryMode.Writable) ? Win32.MemoryProtectionType.ReadWrite : Win32.MemoryProtectionType.ReadOnly;
 			}
 
-			var @base = Win32.NativeMethods.VirtualAllocEx(_processHandle, IntPtr.Zero, (UIntPtr)size, Win32.VirtualAllocType.Commit | Win32.VirtualAllocType.Reserve, protectFlags);
+			var @base = Win32.NativeMethods.VirtualAlloc(IntPtr.Zero, (UIntPtr)size, Win32.VirtualAllocType.Commit | Win32.VirtualAllocType.Reserve, protectFlags);
 			if (@base.IsInvalid)
 			{
 				return Pointer.Invalid;

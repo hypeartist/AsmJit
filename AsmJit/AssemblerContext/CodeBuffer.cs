@@ -250,7 +250,8 @@ namespace AsmJit.AssemblerContext
 			// We will copy the exact size of the generated code. Extra code for trampolines
 			// is generated on-the-fly by the relocator (this code doesn't exist at the moment).
 			UnsafeMemory.Copy(dst, _buffer, minCodeSize);
-
+			Win32.MemoryProtectionType old;
+			Win32.NativeMethods.VirtualProtect(dst, (UIntPtr)minCodeSize, Win32.MemoryProtectionType.Execute, out old);
 			// Trampoline pointer.
 			var tramp = dst + minCodeSize;
 
@@ -4053,7 +4054,7 @@ namespace AsmJit.AssemblerContext
 
 		private void EmitXopM()
 		{
-			if (!(_eh.ModRmMemory != null)) { throw new ArgumentException(); }
+			if (_eh.ModRmMemory == null) { throw new ArgumentException(); }
 
 			if (_eh.ModRmMemory.HasSegment)
 			{
@@ -4361,7 +4362,7 @@ namespace AsmJit.AssemblerContext
 			Add66Hp((OpRegType(_eh.Operand0) == RegisterType.Xmm).AsByte());
 
 			// Mm/Xmm <- Gp
-			if (OperandsAre(OperandType.Register, OperandType.Register, OperandType.Invalid) && OpRegType(_eh.Operand1) == RegisterType.PatchedGpbHi)
+			if (OperandsAre(OperandType.Register, OperandType.Register, OperandType.Invalid) && _eh.Operand1.As<Register>().IsGp())
 			{
 				_eh.ModRmRegister = OpReg(_eh.Operand1);
 				EmitX86R();
@@ -4382,7 +4383,7 @@ namespace AsmJit.AssemblerContext
 			Add66Hp((OpRegType(_eh.Operand1) == RegisterType.Xmm).AsByte());
 
 			// Gp <- Mm/Xmm
-			if (OperandsAre(OperandType.Register, OperandType.Register, OperandType.Invalid) && OpRegType(_eh.Operand0) == RegisterType.PatchedGpbHi)
+			if (OperandsAre(OperandType.Register, OperandType.Register, OperandType.Invalid) && _eh.Operand0.As<Register>().IsGp())
 			{
 				_eh.ModRmRegister = OpReg(_eh.Operand0);
 				EmitX86R();
@@ -4417,7 +4418,7 @@ namespace AsmJit.AssemblerContext
 
 		private void EmitDisplacement()
 		{
-			if (!(_eh.Label.Offset == -1)) { throw new ArgumentException(); }
+			if (_eh.Label.Offset != -1) { throw new ArgumentException(); }
 			if (!(_eh.DisplacementSize == 1 || _eh.DisplacementSize == 4)) { throw new ArgumentException(); }
 
 			// Chain with label.

@@ -14,6 +14,11 @@ namespace AsmJit.CompilerContext.CodeTree
 			return node.FlowId != 0;
 		}
 
+		internal static bool IsRemovable(this CodeNode node)
+		{
+			return node.Flags.IsSet(CodeNodeFlags.Removable);
+		}
+
 		internal static bool IsInformative(this CodeNode node)
 		{
 			return node.Flags.IsSet(CodeNodeFlags.Informative);

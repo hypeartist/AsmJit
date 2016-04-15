@@ -210,3 +210,6 @@ FakesAssemblies/
 GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
+/AsmJitTest/AsmJitTest.scgdat
+/AsmJitTest/DllLoader.cs
+/AsmJit/AsmJit.scgdat

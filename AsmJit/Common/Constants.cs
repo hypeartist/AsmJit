@@ -5,7 +5,7 @@ namespace AsmJit.Common
 	internal static class Constants
 	{
 		public static readonly bool X64 = IntPtr.Size > 4;
-		public static readonly CallingConvention DefaultCallingConvention = X64 ? CallingConvention.X64Win : CallingConvention.X86CDecl;
+		public static readonly CallingConvention DefaultCallingConvention = X64 ? CallingConvention.X64Win : CallingConvention.X86StdCall;
 
 		public const int InvalidValue = -1;
 		public const int InvalidId = InvalidValue;

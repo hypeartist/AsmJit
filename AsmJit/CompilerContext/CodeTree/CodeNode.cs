@@ -6,6 +6,7 @@ namespace AsmJit.CompilerContext.CodeTree
 	{
 		internal CodeNode(CodeNodeType type)
 		{
+			Flags |= CodeNodeFlags.Removable;
 			Type = type;
 		}
 

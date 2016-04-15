@@ -319,6 +319,7 @@ namespace AsmJit.CompilerContext
 					else if (aIndex != RegisterIndex.Invalid)
 					{
 						Translator.Move(aVd, @class, bIndex);
+						VariableContext.ClobberedRegs.Or(@class, Utils.Mask(bIndex));
 
 						aVa.Flags |= VariableFlags.AllocRDone;
 						Done.Add(@class);
@@ -328,6 +329,7 @@ namespace AsmJit.CompilerContext
 					else
 					{
 						Translator.Alloc(aVd, @class, bIndex);
+						VariableContext.ClobberedRegs.Or(@class, Utils.Mask(bIndex));
 
 						aVa.Flags |= VariableFlags.AllocRDone;
 						Done.Add(@class);

@@ -8,7 +8,7 @@ namespace AsmJit.CompilerContext.CodeTree
 			Data = data;
 			Hint = hint;
 			Value = value;
-			Flags |= CodeNodeFlags.Informative;
+			Flags |= (CodeNodeFlags.Removable | CodeNodeFlags.Informative);
 		}
 
 		public VariableData Data { get; private set; }

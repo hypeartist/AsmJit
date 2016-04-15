@@ -135,9 +135,9 @@ namespace AsmJit.Common
 			[DllImport("Kernel32.dll", CharSet = CharSet.Unicode, ExactSpelling = true, SetLastError = true)]
 			public static extern VirtualAllocRegion VirtualAlloc(IntPtr address, UIntPtr size, VirtualAllocType allocType, MemoryProtectionType protectionType);
 
-			[SuppressUnmanagedCodeSecurity]
-			[DllImport("Kernel32.dll", CharSet = CharSet.Unicode, ExactSpelling = true, SetLastError = true)]
-			public static extern VirtualAllocRegion VirtualAllocEx(IntPtr hProcess, IntPtr address, UIntPtr size, VirtualAllocType allocType, MemoryProtectionType protectionType);
+			//[SuppressUnmanagedCodeSecurity]
+			//[DllImport("Kernel32.dll", CharSet = CharSet.Unicode, ExactSpelling = true, SetLastError = true)]
+			//public static extern VirtualAllocRegion VirtualAllocEx(IntPtr hProcess, IntPtr address, UIntPtr size, VirtualAllocType allocType, MemoryProtectionType protectionType);
 
 			[DllImport("Kernel32.dll", CharSet = CharSet.Unicode, ExactSpelling = true, SetLastError = true)]
 			[return: MarshalAs(UnmanagedType.Bool)]

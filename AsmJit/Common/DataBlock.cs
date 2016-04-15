@@ -2,7 +2,7 @@ using AsmJit.Common.Operands;
 
 namespace AsmJit.Common
 {
-	internal class DataBlock
+	public class DataBlock
 	{
 		public DataBlock(Label label, int alignment, params Data[] data)
 		{
